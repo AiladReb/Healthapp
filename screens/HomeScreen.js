@@ -9,8 +9,8 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-import { MapView , Marker } from 'expo';
-import { Button } from 'react-native-elements'
+import { MapView } from 'expo';
+import { Button } from 'react-native-elements';
 import { Container, Header, Item, Input, Icon } from 'native-base';
 import { MonoText } from '../components/StyledText';
 
@@ -18,6 +18,49 @@ export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      markers: [],
+    };
+  }
+
+  fetchMarkerData() {
+    fetch('https://feeds.citibikenyc.com/stations/stations.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({ 
+          isLoading: false,
+          markers: [
+            {
+              stationName: "ESI - Ecole Nationnale Superieure d'informatique",
+              latitude: 40.7643971,
+              longitude: -73.97371465,
+            } , 
+            {
+              stationName: "Gare Oued Semmar",
+              latitude: 36.7098628,
+              longitude: 3.1596368,
+            } , 
+            {
+              stationName: "USTHB - Bab Ezzouar",
+              latitude: 36.7101816,
+              longitude: 3.1765913,
+            }
+          ], 
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  componentDidMount() {
+    this.fetchMarkerData();
+}
 
   render() {
     return (
@@ -29,18 +72,36 @@ export default class HomeScreen extends React.Component {
             <Icon name="ios-people" />
           </Item>
           <Button transparent>
-            <Text>Search</Text>
+            <Text>Searchhh</Text>
           </Button>
         </Header>
             <MapView
             style={{ flex: 1 }}
-            initialRegion={{
-              latitude: 36.7046908,
-              longitude: 3.1703399,
+            region={{
+              latitude: 36.7098628,
+              longitude: 3.1596368,
               latitudeDelta: 0.0922,
               longitudeDelta: 0.0421,
-            }} />
-            {/* <MapView.Marker coordinate={ {latitude :36.7046908 , longitude :3.1703399} } />; */}
+            }}
+            >
+
+            {this.state.isLoading ? null : this.state.markers.map((marker, index) => {
+            const coords = {
+            latitude: marker.latitude,
+            longitude: marker.longitude,
+             };
+
+            const metadata = `Status: ${marker.statusValue}`;
+
+              return (
+                  <MapView.Marker
+                      key={index}
+                      coordinate={coords}
+                      title={marker.stationName}
+                  />
+              );
+            })}
+            </MapView>
             <Button
               title="Appel"
               //loading
