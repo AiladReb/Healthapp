@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { WebBrowser } from 'expo';
 import { MapView , Marker } from 'expo';
-import { SearchBar } from 'react-native-elements'
-
+import { Button } from 'react-native-elements'
+import { Container, Header, Item, Input, Icon } from 'native-base';
 import { MonoText } from '../components/StyledText';
 
 export default class HomeScreen extends React.Component {
@@ -21,22 +21,49 @@ export default class HomeScreen extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-      <SearchBar
-  showLoading
-  cancelButtonTitle="Cancel"
-  placeholder='Search'
-   />
-        <MapView
-        style={{ flex: 1 }}
-        initialRegion={{
-          latitude: 36.7046908,
-          longitude: 3.1703399,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-      />
-      </View>
+       <Container style={styles.SearchBar} >
+        <Header searchBar rounded style={{ backgroundColor : '#228c1d'}}>
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+            <Icon name="ios-people" />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
+            <MapView
+            style={{ flex: 1 }}
+            initialRegion={{
+              latitude: 36.7046908,
+              longitude: 3.1703399,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }} />
+            {/* <MapView.Marker coordinate={ {latitude :36.7046908 , longitude :3.1703399} } />; */}
+            <Button
+              title="Appel"
+              //loading
+              //loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
+              titleStyle={{ fontWeight: "700" , fontSize : 19 }}
+              buttonStyle={{
+                backgroundColor: "#228c1d",
+                width: "90%",
+                height: 45,
+                borderColor: "transparent",
+                borderWidth: 0,
+                borderRadius: 5 , 
+                position : "absolute" , 
+                marginLeft : 20 , 
+                bottom : 0 , 
+                marginBottom: 20 , 
+              }}
+              containerStyle={{ marginBottom: 20,alignSelf: 'center'}}
+            />
+            
+              
+            
+        </Container>
     );
   }
 
@@ -78,6 +105,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    flexDirection : 'column',
+    justifyContent : 'flex-start',
+  },
+  SearchBar : {
+    flex:1,
+    margin : 0 , 
+  },
+  AppelButton : {
+    width : "90%" , 
+    marginBottom : 15 , 
+    position : "absolute" , 
+    backgroundColor : "#228c1d" , 
+    borderRadius : 30, 
+    bottom : 0,
+    textAlign : "center"
+  },
+  ButtonText : {
+    color : "#fff" ,
+    fontSize : 17, 
+    textAlign : "center" ,
   },
   developmentModeText: {
     marginBottom: 20,

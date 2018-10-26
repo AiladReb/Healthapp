@@ -9,10 +9,12 @@ import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
   Home: HomeScreen,
+  title : "Home"
 });
 
 HomeStack.navigationOptions = {
   tabBarLabel: 'Home',
+  title : 'Home' , 
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
