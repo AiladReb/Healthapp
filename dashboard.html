@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<!--
+This is a starter template page. Use this page to start your new project from
+scratch. This page gets rid of all links and provides the needed markup only.
+-->
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>AdminMon Enfant | Starter</title>
+  <!-- Tell the browser to be responsive to screen width -->
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
+  <!-- Ionicons -->
+  <link rel="stylesheet" href="bower_components/Ionicons/css/ionicons.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/AdminLTE.min.css">
+  <!-- AdminLTE Skins. We have chosen the skin-blue for this starter
+        page. However, you can choose any other skin. Make sure you
+        apply the skin class to the body tag so the changes take effect. -->
+  <link rel="stylesheet" href="dist/css/skins/skin-blue.min.css">
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- Google Font -->
+  <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+</head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to get the
+desired effect
+|---------------------------------------------------------|
+| SKINS         | skin-blue                               |
+|               | skin-black                              |
+|               | skin-purple                             |
+|               | skin-yellow                             |
+|               | skin-red                                |
+|               | skin-green                              |
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | fixed                                   |
+|               | layout-boxed                            |
+|               | layout-top-nav                          |
+|               | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition skin-blue sidebar-mini">
+<div class="wrapper">
+
+  <!-- Main Header -->
+  <header class="main-header">
+
+    <!-- Logo -->
+    <a href="index2.html" class="logo">
+      <!-- mini logo for sidebar mini 50x50 pixels -->
+      <span class="logo-mini"><b>E</b>SI</span>
+      <!-- logo for regular state and mobile devices -->
+      <span class="logo-lg"><b>Mon</b>ENFANT</span>
+    </a>
+
+    <!-- Header Navbar -->
+    <nav class="navbar navbar-static-top" role="navigation">
+       
+    
+      <!-- Sidebar toggle button-->
+      <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button">
+        <span class="sr-only">Toggle navigation</span>
+      </a>
+      <form action="#" method="get" class="navebar-form pull-left" style="    margin: 10px;">
+        <div class="input-group">
+          <input type="text" name="q" class="form-control" placeholder="Search..." style="width:400px;"  >
+          <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+        </div>
+      </form>
+      <!-- Navbar Right Menu -->
+      <div class="navbar-right" style="position: sticky;">
+        <ul class="nav navbar-nav">
+          <!-- Messages: style can be found in dropdown.less-->
+          <li class="dropdown messages-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="far fa-calendar-plus"></i>
+              <span class="label label-success">4</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">4 demande de plannification</li>
+              <li> UserX demande une plannification pour ....</li>
+              <li> Usery demande une plannification pour ....</li>  
+                
+              
+              <li class="footer"><a href="#">voir plus </a></li>
+            </ul>
+          </li>
+          <!-- /.messages-menu -->
+
+          <!-- Notifications Menu -->
+          <li class="dropdown notifications-menu">
+            <!-- Menu toggle button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fa fa-bell-o"></i>
+              <span class="label label-warning">10</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header"> 10 notifications</li>
+              <li>
+                <!-- Inner Menu: contains the notifications -->
+                <ul class="menu">
+                  <li><!-- start notification -->
+                    <a href="#">
+                      <i class="fa fa-users text-aqua"></i> 5 personnes ont utilisé l'application
+                    </a>
+                  </li>
+                  <!-- end notification -->
+                </ul>
+              </li>
+              <li class="footer"><a href="#">Voir plus</a></li>
+            </ul>
+          </li>
+          <!-- Tasks Menu -->
+          <li class="dropdown tasks-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <i class="fas fa-user-alt"></i>
+              <span class="label label-danger">9</span>
+            </a>
+            <ul class="dropdown-menu">
+              <li class="header">9 personnes demande une validation </li>
+              <li>
+                <!-- Inner menu: contains the tasks -->
+                <ul class="menu">
+                  <li><!-- Task item -->
+                    <a href="#">
+                      <!-- Task title and progress text -->
+                      <h3>
+                        la personneX souhaite s'inscrire ..10:11
+                      </h3>
+                      <h3>
+                        la personneY suhaite s'inscrire  ..20:23
+                      </h3>
+                        
+                      
+                      <!-- The progress bar -->
+                    
+                    </a>
+                  </li>
+                  <!-- end task item -->
+                </ul>
+              </li>
+              <li class="footer">
+                <a href="#">Voir plus</a>
+              </li>
+            </ul>
+          </li>
+          <!-- User Account Menu -->
+          <li class="dropdown user user-menu">
+            <!-- Menu Toggle Button -->
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <!-- The user image in the navbar-->
+              <i class="fas fa-user-circle fa-2x" ></i>
+              <!-- hidden-xs hides the username on small devices so only the image appears. -->
+              <span class="hidden-xs">Admin RH</span>
+            </a>
+            <ul class="dropdown-menu">
+              <!-- The user image in the menu -->
+              <li class="user-header">
+                <i class="fas fa-user-circle fa-4x"></i>
+                <p>
+                  Admin RH - NOM PRENOM
+                  <small>Member since Nov. 2015</small>
+                </p>
+              </li>
+                            
+              <!-- Menu Footer-->
+              <li class="user-footer">
+                <div class="pull-left">
+                  <a href="#" class="btn btn-default btn-flat">Profile</a>
+                </div>
+                <div class="pull-right">
+                  <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+        </ul>
+      </div>
+
+
+    </nav>
+  </header>
+  <!-- Left side column. contains the logo and sidebar -->
+  <aside class="main-sidebar">
+
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+
+      <!-- Sidebar user panel (optional) -->
+      <div class="user-panel">
+        <div class="pull-left image">
+          <i class="fas fa-school fa-2x " style="color: white"></i>
+        </div>
+        <div class="pull-left info">
+          <p>ESI-Oued Semar</p>
+          <!-- Status -->
+          
+        </div>
+      </div>
+    </section>
+    <br><br><br><br>
+
+    <p> <font color="red">TYPE   :   </font> <font color="white">Ecole supérieure</font></p>
+    <p> <font color="red">ADRESSE :</font> <font color="white">OUED SEMAR </font></p>
+    <p> <font color="red">FAX    :    </font> <font color="white">  0625358877</font></p>
+    <p> <font color="red">EMAIL  :</font> <font color="white">  esi@esi.dz </font></p>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+   
+    
+
+    <!-- Main content -->
+    <section class="content container-fluid">
+
+      <!-- form start -->
+            <form class="form-horizontal">
+              <div class="box-body">
+                <div class="form-group">
+                  <label for="inputNom3" class="col-sm-2 control-label">Nom</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputNom" placeholder="MEDJ">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputPrenom" class="col-sm-2 control-label">Prenom</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputPrenom" placeholder="Kadir">
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label for="inputAdresse" class="col-sm-2 control-label">Adresse</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputAdresse" placeholder="oued semar">
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label for="inputNum" class="col-sm-2 control-label">Numero</label>
+
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputNum" placeholder="0623459888">
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputNumID" class="col-sm-2 control-label">Numero Identité</label>
+
+                  <div class="col-sm-10">
+                    <input type="number" class="form-control" id="inputNumID" placeholder="16689755">
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label for="inputProffession" class="col-sm-2 control-label">Profession</label>
+
+                  <div class="col-sm-10">
+                    <input type="text" class="form-control" id="inputProffession" placeholder="cuisinier">
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label for="inputNbrEnfant" class="col-sm-2 control-label">Nombre Enfants</label>
+
+                  <div class="col-sm-10">
+                    <input type="Number" class="form-control" id="inputNbrEnfant" placeholder="3">
+                  </div>
+                </div>
+                <div class="box-body">
+                <div class="form-group">
+                  <label for="inputNbrEnfant" class="col-sm-2 control-label">Details Enfants</label>
+                  </div>
+              <table id="example2" class="table table-bordered table-hover">
+                <thead>
+                <tr>
+                  <th>Nom</th>
+                  <th>Prenom</th>
+                  <th>Niveau</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                  <td>MEDJ</td>
+                  <td>Dalia
+                  </td>
+                  <td>1AM</td>
+                </tr>
+                <tr>
+                  <td>MEDJ</td>
+                  <td>Sara
+                  </td>
+                  <td>2AM</td>
+                  
+                </tr>
+                <tr>
+                  <td>MEDJ</td>
+                  <td>Abdelkhalek
+                  </td>
+                  <td>4AM</td>
+                  
+                </tr>
+               
+                </tbody>
+                </table>
+                
+              <!-- /.box-body -->
+              <div class="box-body">
+                <button type="submit" class="btn btn-error pull-right">Refuser</button>
+                <button type="submit" class="btn btn-info pull-right">Valider</button>
+              </div>
+              <!-- /.box-footer -->
+            </form>
+
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+  <!-- Main Footer -->
+  <footer class="main-footer">
+    <!-- To the right -->
+    <div class="pull-right hidden-xs">
+      Dashboard pour votre école!
+    </div>
+    <!-- Default to the left -->
+    <strong>Copyright &copy; 2016 <a href="#">Company</a>.</strong> All rights reserved.
+  </footer>
+
+
+  <!-- /.control-sidebar -->
+  <!-- Add the sidebar's background. This div must be placed
+  immediately after the control sidebar -->
+  <div class="control-sidebar-bg"></div>
+</div>
+<!-- ./wrapper -->
+
+<!-- REQUIRED JS SCRIPTS -->
+
+<!-- jQuery 3 -->
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap 3.3.7 -->
+<script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.min.js"></script>
+
+<!-- Optionally, you can add Slimscroll and FastClick plugins.
+     Both of these plugins are recommended to enhance the
+     user experience. -->
+</body>
+</html>
