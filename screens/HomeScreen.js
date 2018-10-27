@@ -13,6 +13,7 @@ import { MapView } from 'expo';
 import { Button } from 'react-native-elements';
 import { Container, Header, Item, Input, Icon } from 'native-base';
 import { MonoText } from '../components/StyledText';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -66,13 +67,14 @@ export default class HomeScreen extends React.Component {
     return (
        <Container style={styles.SearchBar} >
         <Header searchBar rounded style={{ backgroundColor : '#228c1d'}}>
+        <Ionicons name="md-list" size={32} color="white" style={{marginTop : 15}} />
           <Item>
             <Icon name="ios-search" />
             <Input placeholder="Search" />
             <Icon name="ios-people" />
           </Item>
           <Button transparent>
-            <Text>Searchhh</Text>
+            <Text>Search</Text>
           </Button>
         </Header>
             <MapView
@@ -103,7 +105,7 @@ export default class HomeScreen extends React.Component {
             })}
             </MapView>
             <Button
-              title="Appel"
+              title="Demande"
               //loading
               //loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
               titleStyle={{ fontWeight: "700" , fontSize : 19 }}
