@@ -23,6 +23,7 @@ import Colors from "../constants/Colors";
 import SideBar from "./SideBar";
 import MyHeader from './MyHeader'
 import RNGooglePlaces from 'react-native-google-places';
+import {Actions} from 'react-native-router-flux'
 
 class Home extends Component {
     static navigationOptions = {
@@ -42,6 +43,7 @@ class Home extends Component {
     
         this.state = {
           isLoading: true,
+          load : false ,
           markers: [],
         };
       }
@@ -68,6 +70,16 @@ class Home extends Component {
                   latitude: 36.7125656,
                   longitude: 4.1765913,
                 },
+                {
+                  stationName: "Aissat Idir",
+                  latitude: 36.7538259,
+                  longitude: 3.0534636,
+                },
+                {
+                  stationName: "Khelifa Boukhalfa",
+                  latitude: 36.7576972,
+                  longitude: 3.0451424,
+                },
               ], 
             });
           })
@@ -77,19 +89,16 @@ class Home extends Component {
       }
     
 
-      openSearchModal() {
-        RNGooglePlaces.openAutocompleteModal()
-        .then((place) => {
-        console.log(place);
-        // place represents user's selection from the
-        // suggestions and it is a simplified Google Place object.
-        })
-        .catch(error => console.log(error.message));  // error is a Javascript Error object
-      }
-    
-
       componentDidMount() {
         this.fetchMarkerData();
+    }
+
+    callPersons = () => { 
+      this.setState({load: true});
+        setTimeout(function () {
+             Actions.jump("callPersons");
+
+        }, 2000);
     }
 
     render() {
@@ -109,7 +118,7 @@ class Home extends Component {
                     <Container style={styles.SearchBar} >
                         <Header searchBar rounded style={{ backgroundColor : '#36A97A' , width : "100%" , margin : 0, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                             <TouchableOpacity onPress={this.openDrawer}>
-                            <Ionicons name="md-list" size={32} color="white" style={{marginTop : 15 , marginRight : 15}} />
+                            <Ionicons name="md-list" size={32} color="white" style={{ marginRight : 15}} />
                             </TouchableOpacity>
                                 <Item style={{width : "100%" , margin : 0, flex: 1}} >
                                     <Icon name="ios-search" />
@@ -147,7 +156,7 @@ class Home extends Component {
             </MapView>
             
             <Button
-            //onPress={call(args).catch(console.error)}
+            onPress={this.callPersons}
               title="Demande"
               //loading
               //loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
