@@ -20,7 +20,6 @@ const RouterComponent = () => {
                 <Scene key="register" component={RegisterScreen} hideNavBar/>
                 <Scene key="callPersons" component={callPersons} hideNavBar/>
                 <Scene key="callPersonsAccepted" component={callPersonsAccepted} hideNavBar/>
-
             </Scene>
 
         </Router>
