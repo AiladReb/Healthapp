@@ -62,7 +62,7 @@ class LoginScreen extends Component {
                         </Item>
                         <View style={{margin:"1%", borderColor: Colors.Green, borderWidth: 1, alignSelf: 'stretch'}}/>
                     </Form>
-                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 20}} 
+                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 30}} 
                         onPress={() => {
                                      this.login();
                         }}>

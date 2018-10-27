@@ -9,6 +9,10 @@ import styles from '../screenStyle/LoginScreenStyle';
 import Colors from "../constants/Colors";
 import {Actions} from "react-native-router-flux";
 
+import KeyboardSpacer from 'react-native-keyboard-spacer';
+
+
+
 
 class RegisterScreen extends Component {
 
@@ -21,62 +25,62 @@ class RegisterScreen extends Component {
 
     }
 
-    renderForm() {
+    render() {
         if (this.state.load) {
             return <BarIndicator color={Colors.Green} count={5}/>;
         }
         return (
-            <Row size={3} style={styles.registerContainer}>
-                <Form>
-                    <Item floatingLabel>
-                        <Label style={{color: Colors.Maron}}>Username</Label>
-                        <Input style={{color: Colors.Green}}/>
-                    </Item>
-                    <Item floatingLabel last>
-                        <Label style={{color: Colors.Maron}}>email</Label>
-                        <Input style={{color: Colors.Green}}/>
-                    </Item>
-                    <Item floatingLabel>
-                        <Label style={{color: Colors.Maron}}>password</Label>
-                        <Input style={{color: Colors.Green}}/>
-                    </Item>
-                    <Item floatingLabel>
-                        <Label style={{color: Colors.Maron}}>confirm your password</Label>
-                        <Input style={{color: Colors.Green}}/>
-                    </Item>
-                </Form>
-                <Button block style={{backgroundColor: Colors.Green}} onPress={() => {
-                    this.setState({load: true});
-                    setTimeout(function () {
-                        Actions.jump('home');
-                    }, 2000);
-                }}>
-                    <Text style={styles.textButtonStyle}>Submit</Text>
-                </Button>
+            <Container style={{display: 'flex', justifyContent: 'flex-end',  paddingBottom: 55, backgroundColor: Colors.white}}>
+              
+              <Content>
+              <Thumbnail square
+                               source={require('../assets/images/robot-dev.png')}
+                               style={{width: 120, height: 100, alignSelf: 'center',}}/>
+               
+           
+              <Form style={{padding: 25, paddingTop: 0}}>
+              <Item floatingLabel style = {{borderBottomColor: Colors.Green}}>
+                  <Label style={{ color: Colors.Maron}}>Nom</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+              <Item floatingLabel style = {{borderBottomColor: Colors.Green}}>
+                  <Label style={{color: Colors.Maron}}>Prénom</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+              <Item floatingLabel style = {{borderBottomColor: Colors.Green}} >
+                  <Label style={{color: Colors.Maron}}>Numéro de téléphone</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+              <Item floatingLabel style = {{borderBottomColor: Colors.Green}}>
+                  <Label style={{color: Colors.Maron}}>Adresse</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+              <Item floatingLabel style = {{borderBottomColor: Colors.Green}}>
+                  <Label style={{color: Colors.Maron}}>N° carte d'identité nationale</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+              <Item floatingLabel >
+                  <Label style={{color: Colors.Maron}}>Profession</Label>
+                  <Input style={{color: Colors.Grey}}/>
+              </Item>
+          </Form>
+          <Button block style={{backgroundColor: Colors.Green,  alignSelf: 'center', borderRadius:20,width: '65%'}} onPress={() => {
+              this.setState({load: true});
+              setTimeout(function () {
+                  Actions.jump('home');
+              }, 2000);
+          }}>
+              <Text style={styles.textButtonStyle }> Sauvegarder </Text>
+          </Button>
+      <KeyboardSpacer />
 
-            </Row>
+           
+              </Content>
+        </Container>
         );
     }
 
-    buttonPressed = () => {
-        console.log("pressed");
-    }
-
-    render() {
-
-        return (
-            <Grid style={[styles.GridContainerStyles, {backgroundColor: Colors.DarkBlue}]}>
-                <Row size={2} style={styles.thumbContainer}>
-                    <Thumbnail square
-                               source={require('../assets/images/robot-dev.png')}
-                               style={{width: 120, height: 120, alignSelf: 'center'}}/>
-                </Row>
-
-                {this.renderForm()}
-
-            </Grid>
-        )
-    }
+   
 
 
 }

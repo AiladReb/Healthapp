@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import call from 'react-native-phone-call'
 
 import {
   Image,
@@ -26,6 +27,7 @@ class Home extends Component {
     static navigationOptions = {
         header: null,
       };
+      
     closeDrawer = () => {
         this.drawer._root.close()
     };
@@ -79,7 +81,10 @@ class Home extends Component {
 
     render() {
 
-
+      const args = {
+        number: '0557121308', // String value with the number to call
+        prompt: true // Optional boolean property. Determines if the user should be prompt prior to the call 
+      }
         return (
 
             <Drawer
@@ -89,16 +94,16 @@ class Home extends Component {
                     content={<SideBar navigator={this.navigator}/>}
                     onClose={() => this.closeDrawer()}>
                     <Container style={styles.SearchBar} >
-                        <Header searchBar rounded style={{ backgroundColor : '#36A97A'}}>
+                        <Header searchBar rounded style={{ backgroundColor : '#36A97A' , width : "100%" , margin : 0}}>
                             <TouchableOpacity onPress={this.openDrawer}>
                             <Ionicons name="md-list" size={32} color="white" style={{marginTop : 15 , marginRight : 15}} />
                             </TouchableOpacity>
-                                <Item>
+                                <Item style={{width : "100%" , margin : 0}} >
                                     <Icon name="ios-search" />
                                     <Input placeholder="Search" />
                                     <Icon name="ios-people" />
                                 </Item>
-                            <Button transparent>
+                            <Button transparent style={{width : "100%"}} >
                                 <Text>Search</Text>
                             </Button>
                         </Header>
@@ -129,18 +134,20 @@ class Home extends Component {
                         );
                         })}
             </MapView>
+            
             <Button
+            //onPress={call(args).catch(console.error)}
               title="Demande"
               //loading
               //loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
-              titleStyle={{ fontWeight: "700" , fontSize : 19 }}
+              titleStyle={{ fontWeight: "700" , fontSize : 25 }}
               buttonStyle={{
                 backgroundColor: "#36A97A",
                 width: "90%",
                 height: 45,
                 borderColor: "transparent",
                 borderWidth: 0,
-                borderRadius: 5 , 
+                borderRadius: 15 , 
                 position : "absolute" , 
                 marginLeft : 20 , 
                 bottom : 0 , 
