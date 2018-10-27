@@ -19,7 +19,7 @@ export default class SideBar extends Component {
 
 
         }
-    register() {
+    register = () => {
         this.setState({load: true});
         setTimeout(function () {
              Actions.jump("register");

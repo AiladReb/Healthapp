@@ -34,8 +34,9 @@ class RegisterScreen extends Component {
               
               <Content>
               <Thumbnail square
-                               source={require('../assets/images/robot-dev.png')}
-                               style={{width: 120, height: 100, alignSelf: 'center',}}/>
+                               source={require('../assets/images/Profile.png')}
+                               resizeMode="contain"
+                               style={{ alignSelf: 'center' , width : 100 , height : 100 , marginLeft : 10}}/>
                
            
               <Form style={{padding: 25, paddingTop: 0}}>

@@ -44,8 +44,8 @@ class LoginScreen extends Component {
   
             <Container  style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingBottom: 55}}>
               
-              <Thumbnail source={require('../assets/images/login.png')}
-                                              style={{height: '58%', width: '100%', borderRadius:0}}/>
+              <Thumbnail source={require('../assets/images/login.png')} 
+                                              style={{height: '59%', width: '100%', borderRadius:0}}/>
                                 
                 <Form style={{ height: '13%', width: '75%', borderColor: Colors.white}}>
                         <Item floatingLabel>

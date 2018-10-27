@@ -22,6 +22,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Colors from "../constants/Colors";
 import SideBar from "./SideBar";
 import MyHeader from './MyHeader'
+import RNGooglePlaces from 'react-native-google-places';
 
 class Home extends Component {
     static navigationOptions = {
@@ -64,9 +65,9 @@ class Home extends Component {
                 } , 
                 {
                   stationName: "USTHB - Bab Ezzouar",
-                  latitude: 36.7101816,
-                  longitude: 3.1765913,
-                }
+                  latitude: 36.7125656,
+                  longitude: 4.1765913,
+                },
               ], 
             });
           })
@@ -75,6 +76,18 @@ class Home extends Component {
           });
       }
     
+
+      openSearchModal() {
+        RNGooglePlaces.openAutocompleteModal()
+        .then((place) => {
+        console.log(place);
+        // place represents user's selection from the
+        // suggestions and it is a simplified Google Place object.
+        })
+        .catch(error => console.log(error.message));  // error is a Javascript Error object
+      }
+    
+
       componentDidMount() {
         this.fetchMarkerData();
     }
@@ -94,18 +107,16 @@ class Home extends Component {
                     content={<SideBar navigator={this.navigator}/>}
                     onClose={() => this.closeDrawer()}>
                     <Container style={styles.SearchBar} >
-                        <Header searchBar rounded style={{ backgroundColor : '#36A97A' , width : "100%" , margin : 0}}>
+                        <Header searchBar rounded style={{ backgroundColor : '#36A97A' , width : "100%" , margin : 0, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
                             <TouchableOpacity onPress={this.openDrawer}>
                             <Ionicons name="md-list" size={32} color="white" style={{marginTop : 15 , marginRight : 15}} />
                             </TouchableOpacity>
-                                <Item style={{width : "100%" , margin : 0}} >
+                                <Item style={{width : "100%" , margin : 0, flex: 1}} >
                                     <Icon name="ios-search" />
                                     <Input placeholder="Search" />
                                     <Icon name="ios-people" />
                                 </Item>
-                            <Button transparent style={{width : "100%"}} >
-                                <Text>Search</Text>
-                            </Button>
+                            
                         </Header>
                         <MapView
                         style={{ flex: 1 }}
