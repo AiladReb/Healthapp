@@ -5,6 +5,8 @@ import Home from "../screens/Home";
 import RegisterScreen from '../screens/RegisterScreen';
 import callPersons from '../screens/callPersons' ;
 import callPersonsAccepted from '../screens/callPersonsAccepted' ;
+import AjoutZoneScreen from '../screens/AjoutZoneScreen';
+import AjoutEnfantScreen from '../screens/AjoutEnfantScreen';
 
 
 
@@ -20,6 +22,8 @@ const RouterComponent = () => {
                 <Scene key="register" component={RegisterScreen} hideNavBar/>
                 <Scene key="callPersons" component={callPersons} hideNavBar/>
                 <Scene key="callPersonsAccepted" component={callPersonsAccepted} hideNavBar/>
+                <Scene key="AjoutZoneScreen" component={AjoutZoneScreen} hideNavBar/>
+                <Scene key="AjoutEnfantScreen" component={AjoutEnfantScreen} hideNavBar/>
             </Scene>
 
         </Router>

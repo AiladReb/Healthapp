@@ -26,6 +26,21 @@ export default class SideBar extends Component {
 
         }, 1000);
     }
+    AjoutEnfant = () => {
+        this.setState({load: true});
+        setTimeout(function () {
+             Actions.jump("AjoutEnfantScreen");
+
+        }, 1000);
+    }
+
+    AjoutZone = () => {
+        this.setState({load: true});
+        setTimeout(function () {
+             Actions.jump("AjoutZoneScreen");
+
+        }, 1000);
+    }
 
     render() {
         return (
@@ -60,9 +75,7 @@ export default class SideBar extends Component {
                         </Grid>
                     </Button>
 
-                    <Button block style={styles.buttonStyle}    onPress={() => {
-                               
-                            }}>
+                    <Button block style={styles.buttonStyle}    onPress={this.AjoutZone}>
 
                         <Grid>
                             <Col size={1}>
@@ -73,6 +86,18 @@ export default class SideBar extends Component {
                             </Col>
                         </Grid>
                     </Button>
+
+                    <Button block style={styles.buttonStyle}    onPress={this.AjoutEnfant}>
+
+<Grid>
+    <Col size={1}>
+        <Icon name="child" size={20} color={Colors.Green}/>
+    </Col>
+    <Col size={3} style={styles.labelContainer}>
+        <Text style={styles.labelStyle}>Ajouter un enfant </Text>
+    </Col>
+</Grid>
+</Button>
 
                    
                     <Button block style={styles.buttonStyle}

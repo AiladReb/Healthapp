@@ -37,14 +37,14 @@ export default class callPersonsAccepted extends React.Component {
 
         }}>
               <Thumbnail square
-              source={require('../assets/images/Profile.png')}
+              source={require('../assets/images/Girl.png')}
               resizeMode="contain"
               style={{ alignSelf: 'center' , width : 100 , height : 100 , marginLeft : 10 , marginTop : 10 , marginBottom : 5}}/>
               <Text style={{fontSize : 20 , fontWeight : "bold" , color : "white"}} >
                   MEDJKOUNE Tinhinane
                 </Text>
                 <Text style={{fontSize : 15 , fontWeight : "normal" , color : "white"}} >
-                  vient d'accpter votrde demande !   
+                  vient d'accepter votre demande !   
                 </Text>
                 <TouchableOpacity  style={{backgroundColor: "#fff", padding : 10 ,alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 30}} 
                         onPress={() => call(args)}>
