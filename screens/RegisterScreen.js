@@ -20,7 +20,8 @@ class RegisterScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            load: false
+            load: false , 
+        
         }
 
     }
