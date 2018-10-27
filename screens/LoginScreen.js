@@ -9,6 +9,7 @@ import styles from '../screenStyle/LoginScreenStyle';
 import Colors from "../constants/Colors";
 import {Actions} from 'react-native-router-flux'
 
+
 import KeyboardSpacer from 'react-native-keyboard-spacer';
 
 class LoginScreen extends Component {
@@ -29,7 +30,7 @@ class LoginScreen extends Component {
     login() {
         this.setState({load: true});
         setTimeout(function () {
-             Actions.jump('trajetSearch');
+             Actions.jump("home");
         }, 2000);
     }
 
@@ -41,24 +42,31 @@ class LoginScreen extends Component {
         }
         return (
   
-            <Container  style={{display: 'flex', justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 55}}>
+            <Container  style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingBottom: 55}}>
               
               <Thumbnail source={require('../assets/images/login.png')}
-                                              style={{height: '73%', width: '100%', borderRadius:0}}/>
+                                              style={{height: '58%', width: '100%', borderRadius:0}}/>
                                 
-                <Form style={{ height: '18%', width: '80%', borderColor: Colors.white}}>
+                <Form style={{ height: '13%', width: '75%', borderColor: Colors.white}}>
                         <Item floatingLabel>
                             <Label style={{color: Colors.Maron}}>Numéro de téléphone</Label>
                             <Input style={{color: Colors.Green}}/>
                         </Item>
                         <View style={{margin:"1%", borderColor: Colors.Green, borderWidth: 1, alignSelf: 'stretch'}}/>
                     </Form>
-                 
-                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%'}} 
+                    <Form style={{ height: '13%', width: '75%' , borderColor: Colors.white}}>
+                        <Item floatingLabel>
+                            <Label style={{color: Colors.Maron}}>Mot de passse</Label>
+                            <Input style={{color: Colors.Green}}/>                            
+                            
+                        </Item>
+                        <View style={{margin:"1%", borderColor: Colors.Green, borderWidth: 1, alignSelf: 'stretch'}}/>
+                    </Form>
+                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 20}} 
                         onPress={() => {
                                      this.login();
                         }}>
-                            <Text style={styles.textButtonStyle }>connecter</Text>
+                            <Text style={styles.textButtonStyle }>Connecter</Text>
                         </Button>
                         <KeyboardSpacer />
                         

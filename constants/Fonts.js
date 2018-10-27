@@ -50,8 +50,8 @@ const style = {
     fontSize: size.regular
   },
   description: {
-    fontFamily: type.base,
-    fontSize: size.medium
+    fontFamily: type.base
+    
   }
 }
 

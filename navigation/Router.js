@@ -2,6 +2,7 @@ import React from 'react';
 import {Scene, Router} from 'react-native-router-flux';
 import LoginScreen from "../screens/LoginScreen";
 import RegisterScreen from "../screens/RegisterScreen";
+import Home from "../screens/Home";
 
 
 
@@ -13,8 +14,9 @@ const RouterComponent = () => {
             titleStyle={{color: '#fff'}}
             sceneStyle={{backgroundColor: '#FFFFFF', marginTop: 18}}>
             <Scene key="root">
-                <Scene key="login" component={LoginScreen} hideNavBar/>
-                <Scene key="register" component={RegisterScreen} hideNavBar/>
+                <Scene key="LoginScreen" component={LoginScreen} hideNavBar/>
+                <Scene key="home" component={Home} hideNavBar/>
+               
 
 
 
