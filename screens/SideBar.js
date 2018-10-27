@@ -5,10 +5,28 @@ import {Button, Thumbnail, Container, Content} from 'native-base';
 import {Text} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Colors from '../constants/Colors';
+import {Actions} from 'react-native-router-flux'
 
 
 
 export default class SideBar extends Component {
+
+    constructor(props) {
+        super(props) ; 
+        this.state = {
+            load: false,
+        };
+
+
+        }
+    register = () => {
+        this.setState({load: true});
+        setTimeout(function () {
+             Actions.jump("register");
+
+        }, 1000);
+    }
+
     render() {
         return (
 
@@ -28,40 +46,9 @@ export default class SideBar extends Component {
                                 </View>
                 </Row>
                 <Row size={10} style={styles.CotainerStyle }>
-                <TouchableOpacity style={styles.buttonStyle}>
-                        <Grid>
-                            <Col size={1}>
-                                <Icon name="user" size={20} color={Colors.Green}/>
-                            </Col>
-                            <Col size={3} style={styles.labelContainer}>
-                                <Text style={styles.labelStyle}> Mon Profil</Text>
-                            </Col>
-                        </Grid>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonStyle}>
-                        <Grid>
-                            <Col size={1}>
-                                <Icon name="user" size={20} color={Colors.Green}/>
-                            </Col>
-                            <Col size={3} style={styles.labelContainer}>
-                                <Text style={styles.labelStyle}> Mon Profil</Text>
-                            </Col>
-                        </Grid>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonStyle}>
-                        <Grid>
-                            <Col size={1}>
-                                <Icon name="user" size={20} color={Colors.Green}/>
-                            </Col>
-                            <Col size={3} style={styles.labelContainer}>
-                                <Text style={styles.labelStyle}> Mon Profil</Text>
-                            </Col>
-                        </Grid>
-                </TouchableOpacity>
-                    {/* <Button block style={styles.buttonStyle}
-                       onPress={() => {
-                               
-                    }}>
+                
+                <Button block style={styles.buttonStyle}
+                       onPress={this.register}>
 
                         <Grid>
                             <Col size={1}>
@@ -131,7 +118,7 @@ export default class SideBar extends Component {
                                 <Text style={styles.labelStyle}>Paramétres</Text>
                             </Col>
                         </Grid>
-                        </Button> */}
+                        </Button> 
                 </Row>
             </Grid>
 

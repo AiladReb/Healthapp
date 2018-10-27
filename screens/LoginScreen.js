@@ -44,8 +44,8 @@ class LoginScreen extends Component {
   
             <Container  style={{display: 'flex', justifyContent: 'flex-start', alignItems: 'center', paddingBottom: 55}}>
               
-              <Thumbnail source={require('../assets/images/login.png')}
-                                              style={{height: '58%', width: '100%', borderRadius:0}}/>
+              <Thumbnail source={require('../assets/images/login.png')} 
+                                              style={{height: '59%', width: '100%', borderRadius:0}}/>
                                 
                 <Form style={{ height: '13%', width: '75%', borderColor: Colors.white}}>
                         <Item floatingLabel>
@@ -62,7 +62,7 @@ class LoginScreen extends Component {
                         </Item>
                         <View style={{margin:"1%", borderColor: Colors.Green, borderWidth: 1, alignSelf: 'stretch'}}/>
                     </Form>
-                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 20}} 
+                        <Button block style={{backgroundColor: Colors.Green, alignSelf: 'center', borderRadius:20,width: '65%' , marginTop : 30}} 
                         onPress={() => {
                                      this.login();
                         }}>
