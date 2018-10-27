@@ -9,58 +9,124 @@ import {
   View,
 } from 'react-native';
 import { WebBrowser } from 'expo';
-
+import { MapView } from 'expo';
+import { Button } from 'react-native-elements';
+import { Container, Header, Item, Input, Icon } from 'native-base';
 import { MonoText } from '../components/StyledText';
+import { Ionicons } from '@expo/vector-icons';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
   };
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      isLoading: true,
+      markers: [],
+    };
+  }
+
+  fetchMarkerData() {
+    fetch('https://feeds.citibikenyc.com/stations/stations.json')
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({ 
+          isLoading: false,
+          markers: [
+            {
+              stationName: "ESI - Ecole Nationnale Superieure d'informatique",
+              latitude: 40.7643971,
+              longitude: -73.97371465,
+            } , 
+            {
+              stationName: "Gare Oued Semmar",
+              latitude: 36.7098628,
+              longitude: 3.1596368,
+            } , 
+            {
+              stationName: "USTHB - Bab Ezzouar",
+              latitude: 36.7101816,
+              longitude: 3.1765913,
+            }
+          ], 
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  componentDidMount() {
+    this.fetchMarkerData();
+}
+
   render() {
     return (
-      <View style={styles.container}>
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.welcomeContainer}>
-            <Image
-              source={
-                __DEV__
-                  ? require('../assets/images/robot-dev.png')
-                  : require('../assets/images/robot-prod.png')
-              }
-              style={styles.welcomeImage}
+       <Container style={styles.SearchBar} >
+        <Header searchBar rounded style={{ backgroundColor : '#228c1d'}}>
+        <Ionicons name="md-list" size={32} color="white" style={{marginTop : 15}} />
+          <Item>
+            <Icon name="ios-search" />
+            <Input placeholder="Search" />
+            <Icon name="ios-people" />
+          </Item>
+          <Button transparent>
+            <Text>Search</Text>
+          </Button>
+        </Header>
+            <MapView
+            style={{ flex: 1 }}
+            region={{
+              latitude: 36.7098628,
+              longitude: 3.1596368,
+              latitudeDelta: 0.0922,
+              longitudeDelta: 0.0421,
+            }}
+            >
+
+            {this.state.isLoading ? null : this.state.markers.map((marker, index) => {
+            const coords = {
+            latitude: marker.latitude,
+            longitude: marker.longitude,
+             };
+
+            const metadata = `Status: ${marker.statusValue}`;
+
+              return (
+                  <MapView.Marker
+                      key={index}
+                      coordinate={coords}
+                      title={marker.stationName}
+                  />
+              );
+            })}
+            </MapView>
+            <Button
+              title="Appel"
+              //loading
+              //loadingProps={{ size: "large", color: "rgba(111, 202, 186, 1)" }}
+              titleStyle={{ fontWeight: "700" , fontSize : 19 }}
+              buttonStyle={{
+                backgroundColor: "#228c1d",
+                width: "90%",
+                height: 45,
+                borderColor: "transparent",
+                borderWidth: 0,
+                borderRadius: 5 , 
+                position : "absolute" , 
+                marginLeft : 20 , 
+                bottom : 0 , 
+                marginBottom: 20 , 
+              }}
+              containerStyle={{ marginBottom: 20,alignSelf: 'center'}}
             />
-          </View>
-
-          <View style={styles.getStartedContainer}>
-            {this._maybeRenderDevelopmentModeWarning()}
-
-            <Text style={styles.getStartedText}>Get started by opening</Text>
-
-            <View style={[styles.codeHighlightContainer, styles.homeScreenFilename]}>
-              <MonoText style={styles.codeHighlightText}>screens/HomeScreen.js</MonoText>
-            </View>
-
-            <Text style={styles.getStartedText}>
-              Change this text and your app will automatically reload.
-            </Text>
-          </View>
-
-          <View style={styles.helpContainer}>
-            <TouchableOpacity onPress={this._handleHelpPress} style={styles.helpLink}>
-              <Text style={styles.helpLinkText}>Help, it didn’t automatically reload!</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
-
-        <View style={styles.tabBarInfoContainer}>
-          <Text style={styles.tabBarInfoText}>This is a tab bar. You can edit it in:</Text>
-
-          <View style={[styles.codeHighlightContainer, styles.navigationFilename]}>
-            <MonoText style={styles.codeHighlightText}>navigation/MainTabNavigator.js</MonoText>
-          </View>
-        </View>
-      </View>
+            
+              
+            
+        </Container>
     );
   }
 
@@ -102,6 +168,26 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
+    flexDirection : 'column',
+    justifyContent : 'flex-start',
+  },
+  SearchBar : {
+    flex:1,
+    margin : 0 , 
+  },
+  AppelButton : {
+    width : "90%" , 
+    marginBottom : 15 , 
+    position : "absolute" , 
+    backgroundColor : "#228c1d" , 
+    borderRadius : 30, 
+    bottom : 0,
+    textAlign : "center"
+  },
+  ButtonText : {
+    color : "#fff" ,
+    fontSize : 17, 
+    textAlign : "center" ,
   },
   developmentModeText: {
     marginBottom: 20,
